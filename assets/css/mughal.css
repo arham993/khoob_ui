@@ -68,3 +68,20 @@
 .fcols .logo{margin-bottom:18px}.fcols .logo img{height:92px}
 .cv b img{height:clamp(120px,20vw,210px);width:auto}
 @media(max-width:940px){.logo img{height:42px}}
+
+/* Inverted mehrab: flat top, cusped point at the bottom */
+.card .badge{top:12px}.stage .badge{top:18px}
+.gcount{bottom:calc(16% + 4px)}.gnav{bottom:calc(16% + 0px)}
+.cap{bottom:auto;top:16px;transform:translateY(-150%)}
+.hero .arch{clip-path:url(#mughal)}
+
+/* Product cards: no hover effects; static Add to bag under the details */
+.card .im img+img{display:none}
+.card:hover .im img{transform:none}
+.card .nm,.card:hover .nm{background:none}
+.card .qa{position:static;order:3;transform:none;width:100%;height:auto;margin-top:16px;padding:6px 6px 6px 20px;justify-content:space-between;left:auto;right:auto;bottom:auto}
+.card .qa span{display:inline}
+.card .qa i{background:var(--gold);color:var(--navy)}
+.card .qa:hover i,.card:hover .qa{transform:none}
+.seal{top:auto;bottom:16%;right:-36px}
+@media(max-width:900px){.seal{top:auto;bottom:22%;right:-8px}}

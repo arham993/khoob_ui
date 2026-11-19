@@ -13,7 +13,7 @@ function archPath({s,k,amp}){ // normalised 0..1 cusped (multifoil) pointed arch
   }
   half[0]=[0,s]; half[half.length-1]=[.5,0];
   const pts=[[0,1],[0,s],...half,...half.slice(0,-1).reverse().map(p=>[1-p[0],p[1]]),[1,s],[1,1]];
-  return "M"+pts.map(p=>p[0].toFixed(4)+" "+Math.max(0,p[1]).toFixed(4)).join("L")+"Z";
+  return "M"+pts.map(p=>p[0].toFixed(4)+" "+(1-Math.max(0,p[1])).toFixed(4)).join("L")+"Z";
 }
 const ARCHES={mughal:archPath({s:.28,k:3,amp:.042}),"mughal-sm":archPath({s:.15,k:2,amp:.035})};
 const defs=`<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>${Object.entries(ARCHES).map(([id,d])=>`<clipPath id="${id}" clipPathUnits="objectBoundingBox"><path d="${d}"/></clipPath>`).join("")}</defs></svg>`;

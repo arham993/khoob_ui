@@ -113,7 +113,7 @@ const footer = `<div class="arcade" aria-hidden="true"></div><footer class="ft">
 const page = (o, body) => head(o.title, o.desc, o.extra || "") + `<body>` + DEFS + header(o.active) + `<main id="main">${body}</main>` + footer;
 
 const card = (p, i = 0) => `<article class="card" data-id="${p.id}" data-cat="${p.c}" data-price="${p.p}" data-off="${off(p)}" data-name="${p.n.toLowerCase()}" data-r style="--d:${(i % 4) * .09}s">
-<a class="im" href="${p.url}" data-cursor="View" aria-label="${p.n}"><span class="badge">${off(p)}% off</span><img src="${IMG}${p.im[0]}.jpg" alt="${p.n}" loading="lazy"><img src="${IMG}${p.im[1]}.jpg" alt="" loading="lazy"></a>
+<a class="im" href="${p.url}" aria-label="${p.n}"><span class="badge">${off(p)}% off</span><img src="${IMG}${p.im[0]}.jpg" alt="${p.n}" loading="lazy"><img src="${IMG}${p.im[1]}.jpg" alt="" loading="lazy"></a>
 <button class="qa" data-add="${p.id}" aria-label="Add ${p.n} to bag"><span>Add to bag</span><i>+</i></button>
 <div class="meta"><div><small>${p.c} · ${p.cap}</small><a class="nm" href="${p.url}">${p.n}</a></div><div class="price"><b>${money(p.p)}</b><s>${money(p.o)}</s></div></div></article>`;
 
