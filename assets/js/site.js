@@ -283,9 +283,15 @@
     };
     dots.forEach((d, k) => d.addEventListener("click", () => show(k)));
     hero.style.setProperty("--dur", dur + "ms");
-    sls[0].classList.add("on"); dots[0].classList.add("on");
-    if (!reduce) ht = setTimeout(() => show(1), dur);
-    document.addEventListener("visibilitychange", () => { if (document.hidden) clearTimeout(ht); else show(hi === sls.length - 1 ? 0 : hi + 1); });
+    let started = false;
+    const startHero = () => {
+      setTimeout(() => {
+        started = true; sls[0].classList.add("on"); dots[0].classList.add("on");
+        if (!reduce) ht = setTimeout(() => show(1), dur);
+      }, 250);
+    };
+    document.body.classList.contains("ready") ? startHero() : document.addEventListener("khoob:ready", startHero, { once: true });
+    document.addEventListener("visibilitychange", () => { if (!started) return; if (document.hidden) clearTimeout(ht); else show(hi === sls.length - 1 ? 0 : hi + 1); });
   }
 
   /* ------------------------------------------------------------------ *
@@ -423,6 +429,7 @@
   function ready() {
     document.body.classList.add("ready");
     observe();
+    document.dispatchEvent(new Event("khoob:ready"));
   }
   renderCart();
   requestAnimationFrame(loop);

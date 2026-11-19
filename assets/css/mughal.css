@@ -6,9 +6,10 @@
 .arch,.rarch{border-radius:0;box-shadow:none;clip-path:url(#mughal)}
 .frame{position:relative;isolation:isolate}
 .frame::before,.frame::after{content:"";position:absolute;pointer-events:none;clip-path:url(#mughal)}
-.frame::before{inset:-20px;background:var(--pink);z-index:-2}
-.frame::after{inset:-12px;background:var(--bg);z-index:-1}
+.frame::before{inset:-18px;background-color:var(--bg2);background-image:var(--jaali);z-index:-2}
+.frame::after{inset:-5px;background:var(--bg);z-index:-1}
 .ritual .frame::after{background:var(--bg2)}
+.ritual .frame::before{background-color:var(--bg)}
 .hero-art{width:min(calc(100% - 40px),470px)}
 .rstage{width:min(calc(100% - 40px),440px)}
 .story .frame,.split .frame{max-width:420px;width:calc(100% - 40px);justify-self:center}
@@ -78,7 +79,9 @@
 .card .qa i{background:var(--gold);color:var(--navy)}
 .card .qa:hover i,.card:hover .qa{transform:none}
 
-/* Pink outline that follows the cusped arch on cards and the gallery */
-.imw,.stagew{--bw:3px;filter:drop-shadow(var(--bw) 0 0 var(--pink)) drop-shadow(calc(var(--bw)*-1) 0 0 var(--pink)) drop-shadow(0 var(--bw) 0 var(--pink)) drop-shadow(0 calc(var(--bw)*-1) 0 var(--pink))}
+/* Uniform pink outline (8-direction dilation) that follows any arch shape, so thickness never depends on aspect ratio */
+:root{--bw:3px;--bd:2.1px;--outline:drop-shadow(var(--bw) 0 0 var(--pink)) drop-shadow(calc(var(--bw)*-1) 0 0 var(--pink)) drop-shadow(0 var(--bw) 0 var(--pink)) drop-shadow(0 calc(var(--bw)*-1) 0 var(--pink)) drop-shadow(var(--bd) var(--bd) 0 var(--pink)) drop-shadow(calc(var(--bd)*-1) var(--bd) 0 var(--pink)) drop-shadow(var(--bd) calc(var(--bd)*-1) 0 var(--pink)) drop-shadow(calc(var(--bd)*-1) calc(var(--bd)*-1) 0 var(--pink))}
+.imw,.stagew,.frame{filter:var(--outline)}
 .stagew{min-width:0}
 .card .badge,.stage .badge{top:19%;left:14px}
+.seal text{font-size:9.6px;letter-spacing:.2em}

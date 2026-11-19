@@ -6,7 +6,7 @@ const IMG = "assets/img/";
 
 /* ------------------------------ data ------------------------------ */
 const P = [
-  { id: 1, slug: "ultra-light-sunscreen-spf-50", n: "Ultra Light Sunscreen SPF 50+", c: "Sun care", p: 399, o: 449, cap: "50 g",
+  { id: 1, slug: "ultra-light-sunscreen-spf-50", n: "Ultra Light Sunscreen SPF 50+", c: "Skin care", p: 399, o: 449, cap: "50 g",
     im: ["s1", "s2", "s3", "sw"], d: "A water based, broad spectrum SPF 50+ sunscreen made for everyday protection and comfort.",
     b: ["Broad spectrum (PA++++)", "Skin brightening, water based", "Quick absorption, no white cast", "For all skin types"],
     hl: [["50", "+", "SPF protection", 1], ["PA++++", "", "Broad spectrum", 0], ["0", "", "White cast", 1], ["50 g", "", "In every tube", 0]],
@@ -30,7 +30,7 @@ const P = [
 P.forEach(p => { p.url = `product-${p.slug}.html`; });
 const off = p => Math.round((1 - p.p / p.o) * 100);
 const money = n => "₹" + n.toLocaleString("en-IN");
-const CATS = ["All", "Sun care", "Eyes", "Duos"];
+const CATS = ["All", "Skin care", "Eyes", "Duos"];
 const Q = [
   ["100% Transparent Formulas", "Clearly listed ingredients make each formula feel honest, safe, and true to you.", "eye"],
   ["Conscious Beauty Promise", "Beauty that feels aligned with who you are and what you value.", "heart"],
@@ -69,8 +69,8 @@ const ic = {
 const link = (href, t, cls = "", extra = "") => `<a class="btn ${cls}" href="${href}" ${extra}>${t} <i>→</i></a>`;
 
 /* ------------------------------ components ------------------------------ */
-const NAV = [["shop", "shop.html", "Shop"], ["suncare", "shop.html?cat=Sun%20care", "Sun care"], ["eyes", "shop.html?cat=Eyes", "Eyes"], ["promise", "our-promise.html", "Our promise"], ["journal", "journal.html", "Journal"]];
-const MOB = [["Home", "index.html"], ["Shop", "shop.html"], ["Sun care", "shop.html?cat=Sun%20care"], ["Eyes", "shop.html?cat=Eyes"], ["Duos", "shop.html?cat=Duos"], ["Our promise", "our-promise.html"], ["Journal", "journal.html"], ["Contact", "contact.html"]];
+const NAV = [["shop", "shop.html", "Shop"], ["suncare", "shop.html?cat=Skin%20care", "Skin care"], ["eyes", "shop.html?cat=Eyes", "Eyes"], ["promise", "our-promise.html", "Our promise"], ["journal", "journal.html", "Journal"]];
+const MOB = [["Home", "index.html"], ["Shop", "shop.html"], ["Skin care", "shop.html?cat=Skin%20care"], ["Eyes", "shop.html?cat=Eyes"], ["Duos", "shop.html?cat=Duos"], ["Our promise", "our-promise.html"], ["Journal", "journal.html"], ["Contact", "contact.html"]];
 
 const head = (title, desc, extra = "") => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -94,7 +94,7 @@ const header = active => `<a class="sr" href="#main">Skip to content</a>
 <div class="rt"><button class="ib" data-search aria-label="Search products">${ic.search}</button><button class="ib" data-cart aria-label="Open bag">${ic.bag}<span class="cnt">0</span></button></div></header>
 <div class="mnav" aria-label="Menu"><div>${MOB.map(([t, h], i) => `<a class="big" href="${h}"><span style="--i:${i}">${t}</span></a>`).join("")}</div>
 <div class="mf"><small>Halal beauty & personal care,<br>made in India.</small><small><a href="mailto:contactus@boujieconsumer.com">contactus@boujieconsumer.com</a></small></div></div>
-<div class="srch" role="dialog" aria-label="Search"><div class="sp"><form>${ic.search}<input type="search" placeholder="Search sunscreen, kajal, duos…" aria-label="Search products" autocomplete="off"><button type="button" class="xb" data-close aria-label="Close search">${ic.x}</button></form><div class="sres"></div><div class="chipsrow"><span class="muted">Browse:</span><a href="shop.html?cat=Sun%20care">Sun care</a><a href="shop.html?cat=Eyes">Eyes</a><a href="shop.html?cat=Duos">Duos</a></div></div></div>`;
+<div class="srch" role="dialog" aria-label="Search"><div class="sp"><form>${ic.search}<input type="search" placeholder="Search sunscreen, kajal, duos…" aria-label="Search products" autocomplete="off"><button type="button" class="xb" data-close aria-label="Close search">${ic.x}</button></form><div class="sres"></div><div class="chipsrow"><span class="muted">Browse:</span><a href="shop.html?cat=Skin%20care">Skin care</a><a href="shop.html?cat=Eyes">Eyes</a><a href="shop.html?cat=Duos">Duos</a></div></div></div>`;
 
 const footer = `<div class="arcade" aria-hidden="true"></div><footer class="ft"><div class="rugband dk" aria-hidden="true"></div><div class="wrap">
 <div class="ft-top"><h2 class="h-lg" data-split>Join the <em>khoob</em> circle</h2>
@@ -130,12 +130,12 @@ const pages = {};
 
 // HOME
 const heroSlides = [
-  { img: "s1", t: "Sun care", n: P[0].n, u: P[0].url }, { img: "kp1", t: "Eyes", n: P[1].n, u: P[1].url }, { img: "duo1", t: "Duos", n: P[2].n, u: P[2].url }];
-pages["index.html"] = page({ title: "khoob | Halal Beauty & Personal Care", desc: "Halal beauty and personal care, made in India. Ultra Light Sunscreen SPF 50+, Deep Black Kajal and everyday duos that are true to you and true to your beliefs.", active: "home" }, `
+  { img: "s1", t: "Skin care", n: P[0].n, u: P[0].url }, { img: "kp1", t: "Eyes", n: P[1].n, u: P[1].url }, { img: "duo1", t: "Duos", n: P[2].n, u: P[2].url }];
+pages["index.html"] = page({ title: "khoob | Halal Certified Beauty & Personal Care", desc: "Halal certified beauty and personal care, made in India. Ultra Light Sunscreen SPF 50+, Deep Black Kajal and everyday duos that are true to you and true to your beliefs.", active: "home" }, `
 <section class="hero" aria-label="Welcome">
 <div class="blob a" data-speed="-.05" aria-hidden="true"></div><div class="blob b" data-speed=".08" aria-hidden="true"></div><div class="blob c" data-speed="-.1" aria-hidden="true"></div>
 <div class="wrap hero-grid"><div>
-<span class="eyebrow" data-r>Halal beauty &amp; personal care</span>
+<span class="eyebrow" data-r>Halal certified beauty &amp; personal care</span>
 <h1 class="h-xl" data-split style="--d:.1s">True to you.<br><em>True to your beliefs.</em></h1>
 <p class="lead" data-r style="--d:.5s">Simple routines, honest ingredients, and everyday care that feels right for you.</p>
 <div class="hero-cta" data-r style="--d:.65s">${link("shop.html", "Shop now", "navy mag")}${link("our-promise.html", "Our promise", "ghost mag")}</div>
@@ -145,9 +145,9 @@ pages["index.html"] = page({ title: "khoob | Halal Beauty & Personal Care", desc
 <div class="hero-ctl">${heroSlides.map((s, i) => `<button aria-label="Show slide ${i + 1}"><b></b></button>`).join("")}</div>
 <div class="fl f1" data-depth="26"><div><b>SPF 50+</b>Broad spectrum</div></div>
 <div class="fl f2" data-depth="-20"><div><b>8 hrs</b>Long-lasting kajal</div></div>
-<div class="seal" data-depth="14" aria-hidden="true"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="64"/><path id="sc" d="M64,64 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" fill="none"/><text><textPath href="#sc">Halal beauty • Made in India • </textPath></text></svg><div class="core"><span>k</span></div></div>
+<div class="seal" data-depth="14" aria-hidden="true"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="64"/><path id="sc" d="M64,64 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" fill="none"/><text><textPath href="#sc">Halal certified • Made in India • </textPath></text></svg><div class="core"><span>k</span></div></div>
 </div></div><div class="scrollcue" aria-hidden="true"></div></section>
-<div class="rugband" aria-hidden="true"></div>${mq([["Bundle any three and save 20%"], ["Halal beauty, made in India"], ["Cruelty free care"], ["No white cast"], ["Vegan kajal"]], "band")}
+<div class="rugband" aria-hidden="true"></div>${mq([["Bundle any three and save 20%"], ["Halal certified, made in India"], ["Cruelty free care"], ["No white cast"], ["Vegan kajal"]], "band")}
 
 <section class="sec"><div class="wrap"><div class="shead"><div><span class="eyebrow" data-r>The essentials</span><h2 class="h-lg" data-split>Shop the <em>essentials</em></h2></div>${link("shop.html", "Shop all", "navy sm mag")}</div>
 <div class="grid">${P.map(card).join("")}</div></div></section>
@@ -190,7 +190,7 @@ P.forEach((p, idx) => {
   const others = P.filter(x => x.id !== p.id);
   const hl = p.hl.map(h => `<div data-r style="--d:${.08 * 1}s"><b${h[3] ? ` data-count="${h[0]}" data-suffix="${h[1]}"` : ""}>${h[3] ? "0" + h[1] : h[0] + h[1]}</b><span>${h[2]}</span></div>`).join("");
   const ld = `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Product", name: p.n, description: p.d, brand: { "@type": "Brand", name: "khoob" }, offers: { "@type": "Offer", priceCurrency: "INR", price: p.p, availability: "https://schema.org/InStock" } })}</script>`;
-  pages[p.url] = page({ title: `${p.n} | khoob`, desc: p.d, active: p.c === "Sun care" ? "suncare" : p.c === "Eyes" ? "eyes" : "shop", extra: ld }, `
+  pages[p.url] = page({ title: `${p.n} | khoob`, desc: p.d, active: p.c === "Skin care" ? "suncare" : p.c === "Eyes" ? "eyes" : "shop", extra: ld }, `
 <section class="wrap"><div class="pp">
 <div class="gal" data-gal data-r="scale"><div class="thumbs" role="group" aria-label="Product images">${p.im.map((m, i) => `<button class="th${i ? "" : " on"}" aria-label="Show image ${i + 1}"><img src="${IMG}${m}.jpg" alt=""></button>`).join("")}</div>
 <div class="stagew"><div class="stage" tabindex="0" aria-label="${p.n} gallery. Use arrow keys to change image."><span class="badge">${off(p)}% off</span>${p.im.map((m, i) => `<div class="gi"><img src="${IMG}${m}.jpg" alt="${p.n}, view ${i + 1}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} draggable="false"></div>`).join("")}
@@ -205,7 +205,7 @@ P.forEach((p, idx) => {
 <button class="btn navy main mag" data-pdp="add">Add to bag <i>+</i></button></div>
 <div class="buy2"><a class="btn ghost block" href="cart.html" data-pdp="now">Buy it now <i>→</i></a></div>
 <div class="hint" data-hint data-r><div><b class="hm"></b> Bundle any three items for 20% off.</div><div class="free"><b></b></div></div>
-<div class="assure" data-r><div>${ic.shield}Halal-conscious<br>formulas</div><div>${ic.leaf}Cruelty free<br>care</div><div>${ic.pin}Made<br>in India</div></div>
+<div class="assure" data-r><div>${ic.shield}Halal<br>certified</div><div>${ic.leaf}Cruelty free<br>care</div><div>${ic.pin}Made<br>in India</div></div>
 <div class="acc" data-r>
 <div class="acc-i open"><button class="acc-h" aria-expanded="true">Product details<i></i></button><div class="acc-b"><div><ul><li>Size: ${p.cap}</li>${p.b.map(b => `<li>${b}</li>`).join("")}</ul></div></div></div>
 <div class="acc-i"><button class="acc-h" aria-expanded="false">Shipping &amp; returns<i></i></button><div class="acc-b"><div><p>Read our <a href="https://shopkhoob.com/pages/shipping-policy" target="_blank" rel="noopener">shipping policy</a> and <a href="https://shopkhoob.com/pages/returns-refunds" target="_blank" rel="noopener">returns &amp; refunds</a> for the full details.</p></div></div></div>
