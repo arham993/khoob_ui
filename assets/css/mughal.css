@@ -43,12 +43,16 @@
 .ft{margin-top:0;border-radius:0;background-image:var(--jaali-dk)}
 .ft>.rugband{margin-top:0}
 
-/* Jaali lattice backgrounds */
-.hero::before,.pgh::before{content:"";position:absolute;inset:0;background:var(--jaali);-webkit-mask-image:linear-gradient(180deg,#000 8%,transparent 78%);mask-image:linear-gradient(180deg,#000 8%,transparent 78%);pointer-events:none}
-.ritual{background-image:var(--jaali)}
-.stats{background-image:var(--jaali-dk)}
+/* Jaali lattice: hidden by default, revealed as a soft spotlight under the cursor */
+.hero,.pgh,.ritual,.stats,.ft{background-image:none;isolation:isolate}
+.hero::before,.pgh::before,.ritual::before,.stats::before,.ft::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--jaali);opacity:0;transition:opacity .6s var(--ease);pointer-events:none;-webkit-mask-image:radial-gradient(circle 280px at var(--mx,50%) var(--my,50%),#000 0,transparent 100%);mask-image:radial-gradient(circle 280px at var(--mx,50%) var(--my,50%),#000 0,transparent 100%)}
+.stats::before,.ft::before{background:var(--jaali-dk)}
+.hv::before{opacity:1}
+.ritual,.stats,.ft{position:relative}
 
-/* Khatam (8-pointed star) replaces the organic blobs */
+/* Big background stars removed; keep markup but hide */
+.blob{display:none!important}
+/* (legacy star styles below are inert) */
 .blob{border-radius:0!important;filter:none;background-color:transparent;background-repeat:no-repeat;background-position:center;background-size:contain;animation:spin 120s linear infinite}
 .blob.a,.blob.b,.blob.c{background-color:transparent!important}
 .blob.a{background-image:var(--star-blush);opacity:.6}

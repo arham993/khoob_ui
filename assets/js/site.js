@@ -385,6 +385,12 @@
     const it = h.parentElement, on = !it.classList.contains("open"); it.classList.toggle("open", on); h.setAttribute("aria-expanded", on);
   }));
 
+  /* Jaali spotlight: pattern is revealed only around the cursor */
+  if (fine) $$(".hero,.pgh,.ritual,.stats,.ft").forEach(el => {
+    el.addEventListener("pointermove", e => { const r = el.getBoundingClientRect(); el.style.setProperty("--mx", e.clientX - r.left + "px"); el.style.setProperty("--my", e.clientY - r.top + "px"); el.classList.add("hv"); });
+    el.addEventListener("pointerleave", () => el.classList.remove("hv"));
+  });
+
   /* ------------------------------------------------------------------ *
    * Promise cards: radial wipe from pointer entry point
    * ------------------------------------------------------------------ */
