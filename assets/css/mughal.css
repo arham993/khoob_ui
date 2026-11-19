@@ -57,3 +57,10 @@
 .eyebrow::before{content:"✦";width:auto;height:auto;border-radius:0;background:none;box-shadow:none;animation:none;color:var(--pink);font-size:15px;letter-spacing:0}
 .prow .now{color:var(--pink)}
 .mq-track span.o{-webkit-text-stroke-color:var(--pink)}
+
+/* Brand logo */
+.logo{display:inline-flex}.logo img{height:46px;width:auto;display:block}
+.hd{padding-block:7px}
+.fcols .logo{margin-bottom:18px}.fcols .logo img{height:92px}
+.cv b img{height:clamp(120px,20vw,210px);width:auto}
+@media(max-width:940px){.logo img{height:42px}}

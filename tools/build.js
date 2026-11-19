@@ -77,7 +77,7 @@ const head = (title, desc, extra = "") => `<!doctype html>
 <title>${title}</title><meta name="description" content="${desc}">
 <meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:type" content="website">
 <meta name="theme-color" content="#414042">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23414042'/%3E%3Ctext x='32' y='44' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23F7B5CD'%3Ek%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css"><link rel="stylesheet" href="assets/css/mughal-assets.css"><link rel="stylesheet" href="assets/css/mughal.css">
@@ -86,11 +86,11 @@ const head = (title, desc, extra = "") => `<!doctype html>
 ${extra}</head>`;
 
 const header = active => `<a class="sr" href="#main">Skip to content</a>
-<div class="cv" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><b>khoob<em>.</em></b></div>
+<div class="cv" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><b><img src="assets/img/logo-white.png" alt=""></b></div>
 <div class="progress" aria-hidden="true"></div><div class="cur" aria-hidden="true"></div>
 <header class="hd"><nav aria-label="Main"><ul>${NAV.map(([k, h, t]) => `<li><a href="${h}"${k === active ? ' class="on" aria-current="page"' : ""}>${t}</a></li>`).join("")}</ul>
 <button class="ib burger" data-menu aria-label="Menu" aria-expanded="false">${ic.menu}</button></nav>
-<a class="logo" href="index.html" aria-label="khoob home">khoob<sup>TM</sup></a>
+<a class="logo" href="index.html" aria-label="khoob home"><img src="assets/img/logo-white.png" alt="khoob" width="208" height="140"></a>
 <div class="rt"><button class="ib" data-search aria-label="Search products">${ic.search}</button><button class="ib" data-cart aria-label="Open bag">${ic.bag}<span class="cnt">0</span></button></div></header>
 <div class="mnav" aria-label="Menu"><div>${MOB.map(([t, h], i) => `<a class="big" href="${h}"><span style="--i:${i}">${t}</span></a>`).join("")}</div>
 <div class="mf"><small>Halal beauty & personal care,<br>made in India.</small><small><a href="mailto:contactus@boujieconsumer.com">contactus@boujieconsumer.com</a></small></div></div>
@@ -99,7 +99,7 @@ const header = active => `<a class="sr" href="#main">Skip to content</a>
 const footer = `<div class="arcade" aria-hidden="true"></div><footer class="ft"><div class="rugband dk" aria-hidden="true"></div><div class="wrap">
 <div class="ft-top"><h2 class="h-lg" data-split>Join the <em>khoob</em> circle</h2>
 <div><form class="nl" data-toast-form="Thanks, you’re on the list"><input required type="email" placeholder="Email address" aria-label="Email address"><button class="btn sm">Subscribe <i>→</i></button></form><p class="ft-note">New launches, routines and members-only offers. Unsubscribe anytime.</p></div></div>
-<div class="fcols"><div><div class="logo">khoob<sup>TM</sup></div><p>Thoughtfully made beauty and personal care for everyday routines and conscious choices.</p><p>DLF Phase II, Gurugram, Haryana<br><a href="mailto:contactus@boujieconsumer.com" style="display:inline;background:none">contactus@boujieconsumer.com</a></p></div>
+<div class="fcols"><div><div class="logo"><img src="assets/img/logo-white.png" alt="khoob" width="208" height="140"></div><p>Thoughtfully made beauty and personal care for everyday routines and conscious choices.</p><p>DLF Phase II, Gurugram, Haryana<br><a href="mailto:contactus@boujieconsumer.com" style="display:inline;background:none">contactus@boujieconsumer.com</a></p></div>
 <div><h4>Quick links</h4><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="our-promise.html">The khoob promise</a><a href="journal.html">Journal</a></div>
 <div><h4>Customer support</h4><a href="contact.html">Contact</a><a href="https://shopkhoob.com/pages/contact#khoob-grievance" target="_blank" rel="noopener">Grievance redressal</a><a href="https://shopkhoob.com/pages/shipping-policy" target="_blank" rel="noopener">Shipping policy</a><a href="https://shopkhoob.com/pages/returns-refunds" target="_blank" rel="noopener">Returns &amp; refunds</a></div>
 <div><h4>Follow</h4><div class="soc"><a href="https://www.instagram.com/itskhoob" target="_blank" rel="noopener" aria-label="Instagram">${ic.ig}</a><a href="https://www.facebook.com/khoobtm" target="_blank" rel="noopener" aria-label="Facebook">${ic.fb}</a><a href="http://linkedin.com/company/khoob%E2%84%A2/" target="_blank" rel="noopener" aria-label="LinkedIn">${ic.in}</a></div></div></div>
