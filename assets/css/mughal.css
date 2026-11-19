@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Mughal layer — cusped arches, carpet (rug) borders, jaali lattice,
+   ogee arcade and khatam stars. Loaded after site.css.
+   ========================================================================== */
+/* Cusped-arch frames (mehrab): image sits inside a multifoil arch with a rose inlay ring */
+.arch,.rarch{border-radius:0;box-shadow:none;clip-path:url(#mughal)}
+.frame{position:relative;isolation:isolate}
+.frame::before,.frame::after{content:"";position:absolute;pointer-events:none;clip-path:url(#mughal)}
+.frame::before{inset:-20px;background:var(--pink);z-index:-2}
+.frame::after{inset:-12px;background:var(--bg);z-index:-1}
+.ritual .frame::after{background:var(--bg2)}
+.hero-art{width:min(calc(100% - 40px),470px)}
+.rstage{width:min(calc(100% - 40px),440px)}
+.story .frame,.split .frame{max-width:420px;width:calc(100% - 40px);justify-self:center}
+.story .arch,.split .arch{max-width:none;width:100%}
+.card .im{border-radius:0;clip-path:url(#mughal-sm)}
+.card .badge,.stage .badge{top:19%;left:12px}
+.stage{border-radius:0;clip-path:url(#mughal-sm)}
+.bnd .stack .ri{clip-path:url(#mughal-sm);box-shadow:none}
+.pc .ic,.cinfo .c i{border-radius:0;clip-path:polygon(50% 0,63% 13%,87% 13%,87% 37%,100% 50%,87% 63%,87% 87%,63% 87%,50% 100%,37% 87%,13% 87%,13% 63%,0 50%,13% 37%,13% 13%,37% 13%)}
+.perks li i{border-radius:0;clip-path:polygon(50% 0,63% 13%,87% 13%,87% 37%,100% 50%,87% 63%,87% 87%,63% 87%,50% 100%,37% 87%,13% 87%,13% 63%,0 50%,13% 37%,13% 13%,37% 13%)}
+
+/* Carpet panels: double border with medallion corners */
+.rug{position:relative;--rl:var(--pink);--cs:46px}
+.rug::before{content:"";position:absolute;inset:12px;pointer-events:none;background:var(--ctl) 0 0/var(--cs) no-repeat,var(--ctr) 100% 0/var(--cs) no-repeat,var(--cbl) 0 100%/var(--cs) no-repeat,var(--cbr) 100% 100%/var(--cs) no-repeat}
+.rug::after{content:"";position:absolute;inset:13.4px;border:1.4px solid var(--rl);pointer-events:none;opacity:.9}
+.rug.dk{--rl:var(--gold);--ctl:var(--dtl);--ctr:var(--dtr);--cbl:var(--dbl);--cbr:var(--dbr)}
+.bnd{padding:clamp(56px,6vw,92px)}
+.hls{padding:clamp(56px,5vw,80px)}
+.box{padding:clamp(44px,4.4vw,60px)}
+@media(max-width:700px){.rug{--cs:34px}.bnd{padding:50px 38px}.hls{padding:50px 36px}.box{padding:40px 30px}}
+.pc{border:1px solid var(--line)}
+.pc::after{content:"";position:absolute;inset:8px;border:1px solid var(--line);pointer-events:none;transition:border-color .5s}
+.pc:hover::after{border-color:rgba(247,181,205,.55)}
+.pc:hover{border-color:var(--navy)}
+
+/* Carpet border band + ogee arcade */
+.rugband{height:30px;background:var(--rugband) repeat-x 0 50%/60px 30px;animation:rugmove 10s linear infinite}
+.rugband.dk{background-image:var(--rugband-dk)}
+@keyframes rugmove{to{background-position:-60px 50%}}
+.arcade{height:32px;background:var(--arcade) repeat-x 0 100%/64px 32px;margin-top:clamp(60px,8vw,110px)}
+.arcade.s{margin-top:0}.arcade.on-blush{background-color:var(--bg2)}
+.ft{margin-top:0;border-radius:0;background-image:var(--jaali-dk)}
+.ft>.rugband{margin-top:0}
+
+/* Jaali lattice backgrounds */
+.hero::before,.pgh::before{content:"";position:absolute;inset:0;background:var(--jaali);-webkit-mask-image:linear-gradient(180deg,#000 8%,transparent 78%);mask-image:linear-gradient(180deg,#000 8%,transparent 78%);pointer-events:none}
+.ritual{background-image:var(--jaali)}
+.stats{background-image:var(--jaali-dk)}
+
+/* Khatam (8-pointed star) replaces the organic blobs */
+.blob{border-radius:0!important;filter:none;background-color:transparent;background-repeat:no-repeat;background-position:center;background-size:contain;animation:spin 120s linear infinite}
+.blob.a,.blob.b,.blob.c{background-color:transparent!important}
+.blob.a{background-image:var(--star-blush);opacity:.6}
+.blob.b{background-image:var(--star-line);opacity:.4;animation-duration:80s;animation-direction:reverse}
+.blob.c{background-image:var(--star-blush);opacity:.8;animation-duration:50s}
+.eyebrow::before{content:"✦";width:auto;height:auto;border-radius:0;background:none;box-shadow:none;animation:none;color:var(--pink);font-size:15px;letter-spacing:0}
+.prow .now{color:var(--pink)}
+.mq-track span.o{-webkit-text-stroke-color:var(--pink)}
