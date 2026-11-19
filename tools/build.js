@@ -113,7 +113,7 @@ const footer = `<div class="arcade" aria-hidden="true"></div><footer class="ft">
 const page = (o, body) => head(o.title, o.desc, o.extra || "") + `<body>` + DEFS + header(o.active) + `<main id="main">${body}</main>` + footer;
 
 const card = (p, i = 0) => `<article class="card" data-id="${p.id}" data-cat="${p.c}" data-price="${p.p}" data-off="${off(p)}" data-name="${p.n.toLowerCase()}" data-r style="--d:${(i % 4) * .09}s">
-<a class="im" href="${p.url}" aria-label="${p.n}"><span class="badge">${off(p)}% off</span><img src="${IMG}${p.im[0]}.jpg" alt="${p.n}" loading="lazy"><img src="${IMG}${p.im[1]}.jpg" alt="" loading="lazy"></a>
+<div class="imw"><a class="im" href="${p.url}" aria-label="${p.n}"><span class="badge">${off(p)}% off</span><img src="${IMG}${p.im[0]}.jpg" alt="${p.n}" loading="lazy"><img src="${IMG}${p.im[1]}.jpg" alt="" loading="lazy"></a></div>
 <button class="qa" data-add="${p.id}" aria-label="Add ${p.n} to bag"><span>Add to bag</span><i>+</i></button>
 <div class="meta"><div><small>${p.c} · ${p.cap}</small><a class="nm" href="${p.url}">${p.n}</a></div><div class="price"><b>${money(p.p)}</b><s>${money(p.o)}</s></div></div></article>`;
 
@@ -193,8 +193,8 @@ P.forEach((p, idx) => {
   pages[p.url] = page({ title: `${p.n} | khoob`, desc: p.d, active: p.c === "Sun care" ? "suncare" : p.c === "Eyes" ? "eyes" : "shop", extra: ld }, `
 <section class="wrap"><div class="pp">
 <div class="gal" data-gal data-r="scale"><div class="thumbs" role="group" aria-label="Product images">${p.im.map((m, i) => `<button class="th${i ? "" : " on"}" aria-label="Show image ${i + 1}"><img src="${IMG}${m}.jpg" alt=""></button>`).join("")}</div>
-<div class="stage" tabindex="0" aria-label="${p.n} gallery. Use arrow keys to change image."><span class="badge">${off(p)}% off</span>${p.im.map((m, i) => `<div class="gi"><img src="${IMG}${m}.jpg" alt="${p.n}, view ${i + 1}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} draggable="false"></div>`).join("")}
-<div class="gcount" aria-hidden="true">01 / ${String(p.im.length).padStart(2, "0")}</div><div class="gnav"><button data-prev aria-label="Previous image">${ic.prev}</button><button data-next aria-label="Next image">${ic.arrow}</button></div></div></div>
+<div class="stagew"><div class="stage" tabindex="0" aria-label="${p.n} gallery. Use arrow keys to change image."><span class="badge">${off(p)}% off</span>${p.im.map((m, i) => `<div class="gi"><img src="${IMG}${m}.jpg" alt="${p.n}, view ${i + 1}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} draggable="false"></div>`).join("")}
+<div class="gcount" aria-hidden="true">01 / ${String(p.im.length).padStart(2, "0")}</div><div class="gnav"><button data-prev aria-label="Previous image">${ic.prev}</button><button data-next aria-label="Next image">${ic.arrow}</button></div></div></div></div>
 <div class="pinfo"><div class="crumb" data-r><a href="index.html">Home</a><i>/</i><a href="shop.html">Shop</a><i>/</i><a href="shop.html?cat=${encodeURIComponent(p.c)}">${p.c}</a></div>
 <span class="eyebrow" style="margin:22px 0 14px" data-r style="--d:.05s">${p.c} · ${p.cap}</span>
 <h1 data-split style="--d:.1s">${p.n}</h1>

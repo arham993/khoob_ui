@@ -69,12 +69,6 @@
 .cv b img{height:clamp(120px,20vw,210px);width:auto}
 @media(max-width:940px){.logo img{height:42px}}
 
-/* Inverted mehrab: flat top, cusped point at the bottom */
-.card .badge{top:12px}.stage .badge{top:18px}
-.gcount{bottom:calc(16% + 4px)}.gnav{bottom:calc(16% + 0px)}
-.cap{bottom:auto;top:16px;transform:translateY(-150%)}
-.hero .arch{clip-path:url(#mughal)}
-
 /* Product cards: no hover effects; static Add to bag under the details */
 .card .im img+img{display:none}
 .card:hover .im img{transform:none}
@@ -83,5 +77,8 @@
 .card .qa span{display:inline}
 .card .qa i{background:var(--gold);color:var(--navy)}
 .card .qa:hover i,.card:hover .qa{transform:none}
-.seal{top:auto;bottom:16%;right:-36px}
-@media(max-width:900px){.seal{top:auto;bottom:22%;right:-8px}}
+
+/* Pink outline that follows the cusped arch on cards and the gallery */
+.imw,.stagew{--bw:3px;filter:drop-shadow(var(--bw) 0 0 var(--pink)) drop-shadow(calc(var(--bw)*-1) 0 0 var(--pink)) drop-shadow(0 var(--bw) 0 var(--pink)) drop-shadow(0 calc(var(--bw)*-1) 0 var(--pink))}
+.stagew{min-width:0}
+.card .badge,.stage .badge{top:19%;left:14px}
